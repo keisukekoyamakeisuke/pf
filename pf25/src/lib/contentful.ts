@@ -1,4 +1,4 @@
-import { createClient, Entry, EntrySys } from "contentful";
+import { createClient, Entry } from "contentful";
 import { Document } from "@contentful/rich-text-types";
 
 export interface IPostFields {
@@ -7,22 +7,7 @@ export interface IPostFields {
   content: Document;
 }
 
-export interface IPost extends Entry<IPostFields> {
-  sys: EntrySys & {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: "post";
-        linkType: "ContentType";
-        type: "Link";
-      };
-    };
-  };
-}
+export interface IPost extends Entry<IPostFields> { }
 
 export const buildClient = () => {
   const client = createClient({
@@ -31,3 +16,4 @@ export const buildClient = () => {
   });
   return client;
 };
+
