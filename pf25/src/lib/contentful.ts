@@ -16,6 +16,17 @@ export interface IPost extends Entry<IPostFields> {
     createdAt: string;
     updatedAt: string;
     locale: string;
+    revision: number;
+    environment: {
+      sys: {
+        linkType: "Environment";
+      };
+    }
+    space: {
+      sys: {
+        linkType: "Space";
+      };
+    }
     contentType: {
       sys: {
         id: "post";
