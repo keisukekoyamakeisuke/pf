@@ -1,6 +1,4 @@
-import { createClient } from "contentful";
-
-import { Entry } from "contentful";
+import { createClient, Entry, EntrySys } from "contentful";
 import { Document } from "@contentful/rich-text-types";
 
 export interface IPostFields {
@@ -10,23 +8,12 @@ export interface IPostFields {
 }
 
 export interface IPost extends Entry<IPostFields> {
-  sys: {
+  sys: EntrySys & {
     id: string;
     type: string;
     createdAt: string;
     updatedAt: string;
     locale: string;
-    revision: number;
-    environment: {
-      sys: {
-        linkType: "Environment";
-      };
-    }
-    space: {
-      sys: {
-        linkType: "Space";
-      };
-    }
     contentType: {
       sys: {
         id: "post";
